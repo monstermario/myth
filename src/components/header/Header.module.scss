@@ -1,0 +1,70 @@
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 50px 20px;
+  border-bottom: 1px solid #404040;
+  .logo {
+    font-family: 'PoppinsBold';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 38px;
+    letter-spacing: 0.52em;
+  }
+  .wallet {
+    display: flex;
+    align-items: center;
+  }
+  .balance {
+    display: flex;
+    align-items: center;
+
+    .balanceAmount {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: 'PoppinsBlack';
+      font-style: normal;
+      font-weight: 800;
+      font-size: 11px;
+      line-height: 16px;
+      color: #FFFFFF;
+      span {
+        font-size: 16px;
+        line-height: 24px;
+      }
+    }
+  }
+  .account {
+    display: flex;
+    align-items: center;
+    margin-left: 52px;
+
+    .avatar{
+      position: relative;
+      margin-right: 12px;
+      
+      span {
+        position: absolute;
+        right: 0px;
+        bottom: 4px;
+        width: 12px;
+        height: 12px;
+        display: flex;
+        flex-shrink: 0;
+        background: #FFFFFF;
+        border-radius: 50%;
+      }
+    }
+    p {
+      font-family: 'PoppinsMedium';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 151.5%;
+      letter-spacing: -0.04em;
+      color: #FFFFFF;
+    }
+  }
+}
