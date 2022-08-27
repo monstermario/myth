@@ -6,6 +6,7 @@ import styles from './Missions.module.scss';
 type PageProps = {
   mission: TypeMission;
   closeHandler: () => void;
+  resultHandler: () => void;
 };
 
 type TypeDialogue = {
@@ -14,7 +15,11 @@ type TypeDialogue = {
   text: string;
 };
 
-export const MissionDetail = ({ mission, closeHandler }: PageProps) => {
+export const MissionDetail = ({
+  mission,
+  closeHandler,
+  resultHandler,
+}: PageProps) => {
   const degen = mockupDegens[0];
   const [chats, setChats] = useState<TypeDialogue[]>([
     {
@@ -28,6 +33,10 @@ export const MissionDetail = ({ mission, closeHandler }: PageProps) => {
       text: 'Yep... wanna go meet her?',
     },
   ]);
+
+  setTimeout(() => {
+    resultHandler();
+  }, 5000);
   return (
     <div className={styles.detailPage}>
       <div className={styles.info}>

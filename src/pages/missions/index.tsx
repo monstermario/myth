@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { MissionDetail } from '../../components/missions/missionDetail';
+import { MissionSelect } from '../../components/missions/missionSelect';
 import { MissionsList } from '../../components/missions/missionsList';
 import { MissionSuccess } from '../../components/missions/missionSuccess';
 
@@ -25,7 +26,9 @@ export const MissionsPage: React.FC = () => {
   const [selectedMission, setSelectedMission] = useState<TypeMission | null>(
     null
   );
-  const [isSuccess, setIsSuccess] = useState<boolean>(true);
+  const [isSuccess, setIsSuccess] = useState<boolean>(false);
+  const [currentMission, setCurrentMission] = useState<number>(-1);
+  const [possibleMission, setPossibleMission] = useState<number>(0);
 
   return !selectedMission ? (
     <MissionsList
@@ -53,13 +56,26 @@ export const MissionsPage: React.FC = () => {
       ]}
       continueHandler={() => {
         setIsSuccess(false);
+        setCurrentMission(-1);
       }}
     />
-  ) : (
+  ) : currentMission > -1 ? (
     <MissionDetail
       mission={selectedMission}
       closeHandler={() => {
         setSelectedMission(null);
+      }}
+      resultHandler={() => {
+        setIsSuccess(true);
+        setPossibleMission(possibleMission + 1);
+        setCurrentMission(-1);
+      }}
+    />
+  ) : (
+    <MissionSelect
+      possibleMission={possibleMission}
+      selectHandler={(mission: number) => {
+        setCurrentMission(mission);
       }}
     />
   );
